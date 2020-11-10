@@ -1,12 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Bootstrap Core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Custom Fonts -->
+    <!-- <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css"> -->
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@200;400;500&family=Roboto:wght@300;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <!-- <link href="vendor/simple-line-icons/css/simple-line-icons.css" rel="stylesheet"> -->
+    
+    <!-- Custom CSS -->
+    <link href="css/stylish-portfolio.min.css" rel="stylesheet">
     <link rel="stylesheet" href="controller.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ubon</title>
 </head>
 <body>
+    <div class="navbar">
+        <h1>คุณมีเวลาเหลือ 1.30 นาที</h1>
+    </div>
     <div class="main">
         <!-- color pick section -->
         <section class="colorpicksection">
@@ -312,12 +327,25 @@
 
 
     <!-- footer section -->
-    <div class="footer">
-        <input type="button" class="footerbtn" id="footerbtn1" value="a">
-        <input type="button" class="footerbtn" id="footerbtn2" value="b">
-        <input type="button" class="footerbtn" id="footerbtn3" value="d">
-        <input type="button" class="footerbtn" id="footerbtn4" value="c">
-    </div>
+    <footer id="mobile-footer" class="animate__animated animate__fadeInUp">
+        <div id="mobile-menu">
+            <div id="mobile-footer-container">
+                <div class="mobile-link BACTIVE" id="footerlink1">
+                    <a href="#" class="text-center" id="footerbtn1" onclick=""><img src="img/star-circle.svg"></a>
+                </div>
+                <div class="mobile-link " id="footerlink2">
+                    <a href="#" class="text-center" id="footerbtn2" onclick=""><img src="img/paintbucket.svg"></a>
+                </div>
+                <div class="mobile-link" id="footerlink3">
+                    <a href="#" class="text-center" id="footerbtn3" onclick=""><img src="img/paintbrush.svg"></a>
+                </div>
+                <div class="mobile-link" id="footerlink4">
+                    <a href="#" class="text-center" id="footerbtn4" onclick=""><img src="img/mood-tongue.svg"></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.14.1/moment.min.js"></script>
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/5.3.1/firebase.js"></script>
@@ -341,6 +369,8 @@
         firebase.initializeApp(firebaseConfig);
         firebase.analytics();
     </script>
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@jaames/iro@5"></script>
     <script src="controller.js"></script>
 </body>

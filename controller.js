@@ -424,9 +424,13 @@ resetbtn.onclick=()=>{
 let colorpickSection = document.querySelector('.colorpicksection');
 let directionspeedSection = document.querySelector('.directionspeedcontrol');
 
+let footerparent1 = document.querySelector('#footerlink1');
 let footerbtn1 = document.querySelector('#footerbtn1');
+let footerparent2 = document.querySelector('#footerlink2');
 let footerbtn2 = document.querySelector('#footerbtn2');
+let footerparent3 = document.querySelector('#footerlink3');
 let footerbtn3 = document.querySelector('#footerbtn3');
+let footerparent4 = document.querySelector('#footerlink4');
 let footerbtn4 = document.querySelector('#footerbtn4');
 
 css(colorpickSection,{
@@ -444,6 +448,10 @@ footerbtn2.onclick=()=>{
     'display':'none',
     });
     // setSpeed2Firebase(0);
+    footerparent1.classList.remove('BACTIVE');
+    footerparent2.classList.add('BACTIVE');
+    footerparent3.classList.remove('BACTIVE');
+    footerparent4.classList.remove('BACTIVE');
 }
 
 footerbtn3.onclick=()=>{
@@ -454,4 +462,9 @@ footerbtn3.onclick=()=>{
     'display':'none',
     });
     setSpeed2Firebase(50);
+
+    footerparent1.classList.remove('BACTIVE');
+    footerparent2.classList.remove('BACTIVE');
+    footerparent3.classList.add('BACTIVE');
+    footerparent4.classList.remove('BACTIVE');
 }

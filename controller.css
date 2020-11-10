@@ -2,8 +2,24 @@ body{
     background-color: black;
 }
 
+.navbar {
+  overflow: hidden;
+  background-color: white;
+  position: fixed; /* Set the navbar to fixed position */
+  /* top: 2rem;  */
+  top: 0;
+  width: 100%; /* Full width */
+  display: flex;
+  justify-content: center;
+  z-index: 100;
+}
+
+.navbar h1{
+    text-align: center;
+}
+
 .main{
-    margin-top: 100px;
+    margin-top: 130px;
     /* margin-left: 10%;
     margin-right: 10%; */
     /* display: flex;
@@ -32,6 +48,7 @@ body{
 /* --------------headerinfomation-------------- */
 .headerinfomation{
     padding: 0 60px 0 60px;
+    margin-bottom: 20px;
     color: white;
     text-align: center;
 }
@@ -39,7 +56,7 @@ body{
 /* --------------ToggleControl-------------- */
 
 .togglecontrol{
-    margin-bottom: 20px;
+    margin-bottom: 40px;
 }
 
 .groupbutton{
@@ -85,6 +102,11 @@ body{
 .building{
     /* position: absolute; */
     /* right: 31%; */
+    /* box-sizing: content-box; */
+}
+
+*, ::after, ::before {
+    box-sizing: content-box;
 }
 
 
@@ -938,8 +960,7 @@ position: absolute;
     /* display: flex;
     justify-content: center; */
     display: inline-flex;
-    margin-bottom: 34px;
-    margin-left: 10px;
+    margin-left: -10px;
 }
 
 .pickerpreset{
@@ -988,6 +1009,11 @@ position: absolute;
 }
 
 
+.pickermanual{
+    margin-top: 30px;
+}
+
+
 .groupstyle{
     display: grid;
     grid-template-columns: 80px 80px 80px 80px;
@@ -998,6 +1024,7 @@ position: absolute;
 
 
 .stylename{
+    margin: 10px 0 25px 0;
     color: white;
     text-align: center;
 }
@@ -1090,7 +1117,7 @@ position: absolute;
     background-color: rgb(228, 228, 228);
 }
 
-.footer {
+/* .footer {
    position: fixed;
    left: 0;
    bottom: 0;
@@ -1098,7 +1125,7 @@ position: absolute;
    background-color: white;
    color: black;
    text-align: center;
-}
+} */
 
 
 
