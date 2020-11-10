@@ -7,12 +7,12 @@ let hexpick = '#FFFFFF';
 let presetstatus = 1;
 let presetnowcolor = ['#383838','#383838','#383838','#383838','#383838'];
 let buillding_arr = [
-                     ['#BCBEC0','#BCBEC0','#BCBEC0','#BCBEC0','#BCBEC0','#BCBEC0'],
-                     ['#BCBEC0','#BCBEC0','#BCBEC0','#BCBEC0','#BCBEC0','#BCBEC0'],
-                     ['#BCBEC0','#BCBEC0','#BCBEC0','#BCBEC0','#BCBEC0','#BCBEC0'],
-                     ['#BCBEC0','#BCBEC0','#BCBEC0','#BCBEC0','#BCBEC0','#BCBEC0']
+                     [{'r':0,'g':0,'b':0},{'r':0,'g':0,'b':0},{'r':0,'g':0,'b':0},{'r':0,'g':0,'b':0},{'r':0,'g':0,'b':0},{'r':0,'g':0,'b':0}],
+                     [{'r':0,'g':0,'b':0},{'r':0,'g':0,'b':0},{'r':0,'g':0,'b':0},{'r':0,'g':0,'b':0},{'r':0,'g':0,'b':0},{'r':0,'g':0,'b':0}],
+                     [{'r':0,'g':0,'b':0},{'r':0,'g':0,'b':0},{'r':0,'g':0,'b':0},{'r':0,'g':0,'b':0},{'r':0,'g':0,'b':0},{'r':0,'g':0,'b':0}],
+                     [{'r':0,'g':0,'b':0},{'r':0,'g':0,'b':0},{'r':0,'g':0,'b':0},{'r':0,'g':0,'b':0},{'r':0,'g':0,'b':0},{'r':0,'g':0,'b':0}]
                     ];
-
+console.log(buillding_arr);
 let colorPicker = new iro.ColorPicker('#picker',{
       layoutDirection: 'horizontal',
       width: 240,
@@ -94,6 +94,59 @@ let stylename =[
     ];
 let parentstyleDiv = document.querySelector('.groupstyle');
 let headerstylename = document.querySelector('.stylename');
+// --------------------------------FIRE BASE---------------------------
+
+// firebase.database().ref("Data/Color/").limitToFirst(1).on('value', function(snapshot){
+//     console.log("testFIREBASE");
+//     console.log(snapshot.val());
+// });
+
+
+const setRoomcolor2Firebase=(roomindex,row_index,col_index)=>{
+    firebase.database().ref("Data/Color/Room"+(roomindex+1)).set({
+             "R" :buillding_arr[row_index][col_index].r,
+             "G" :buillding_arr[row_index][col_index].g,
+             "B" :buillding_arr[row_index][col_index].b
+    });
+}
+
+
+// firebase.database().ref("Data/Q/kkk").set({
+//              "TimeStart" : "1",
+//              "TimeEnd":"ss"
+             
+// });
+
+// firebase.database().ref("Data/Q/kkk").remove();
+
+
+const setMovement2Firebase=(movement_state)=>{
+    firebase.database().ref("Data/Movement").set({
+             "Status" : movement_state,
+    });
+}
+
+
+const setSpeed2Firebase=(speed_state)=>{
+    firebase.database().ref("Data/Speed").set({
+             "Status" : speed_state,
+    });
+}
+
+
+//----------------hex to rgb---------------- 
+const hexToRgb=(hex)=>{
+  var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+  return result ? {
+    r: parseInt(result[1], 16),
+    g: parseInt(result[2], 16),
+    b: parseInt(result[3], 16)
+  } : null;
+}
+
+
+
+
 
 //----------------function for set css in each element----------------
 const css=(element, style)=> {
@@ -188,6 +241,7 @@ colorPicker.on('color:change', function(color) {
   let colornow = document.querySelector('.colornow');
   
   hexpick = color.hexString;
+  
   css(colornow, {
         'background-color': hexpick,
     });
@@ -220,8 +274,6 @@ for (let index = 0; index < cellElement.length; index++) {
     let idstr = cellElement[index].classList[1];
     let cellBG = document.querySelector('.'+idstr);
     let cellInput = document.querySelector('#'+idstr);
-    let randX = Math.floor(Math.random() * 7); 
-    let randY = Math.floor(Math.random() * 5); 
     let row_i = Math.floor(index/6);
     let col_j = index%6;
     console.log("row_i = "+row_i+", col_j = "+col_j+", all = "+index);
@@ -231,15 +283,15 @@ for (let index = 0; index < cellElement.length; index++) {
 
     cellInput.onchange=()=> {
        console.log("FillColor Id  = "+hexpick);
-       let randX = Math.floor(Math.random() * 7); 
-       let randY = Math.floor(Math.random() * 5); 
-       buillding_arr[row_i][col_j] = hexpick;
-       console.log("ARR_TABLE = "+buillding_arr);
-       console.log("ARR_i = "+buillding_arr[row_i][col_j]);
+    //    buillding_arr[row_i][col_j] = hexpick;
+       buillding_arr[row_i][col_j] = hexToRgb(hexpick);
+       setRoomcolor2Firebase(index,row_i,col_j);
+       console.log("FillColor RGB = "+JSON.stringify(hexToRgb(hexpick)));
        css(cellBG, {
             'background-color': hexpick,
         });
      }
+     
 }
 
 
@@ -313,7 +365,9 @@ for (let index = 0; index < stylename.length; index++) {
                 let row_i = Math.floor(index3/6);
                 let col_j = index3%6; 
                 let randColorstyle = stylename[index].color[randstyle];
-                buillding_arr[row_i][col_j] = randColorstyle;
+                // buillding_arr[row_i][col_j] = randColorstyle;
+                buillding_arr[row_i][col_j] = hexToRgb(randColorstyle);
+                setRoomcolor2Firebase(index3,row_i,col_j);
                 css(cellBG, {
                     'background-color': randColorstyle,
                 });
@@ -342,23 +396,26 @@ for (let index = 0; index < 9; index++) {
     directioncontrolDiv.appendChild(divbtn);
 
     divbtn.onclick=()=>{
-        
+        setMovement2Firebase(index);
     }
 }
 
 
 //-------------speed control section-------------
-let speedcontrolDiv = document.querySelector('#speedcontrol');
 
+let speedcontrolDiv = document.querySelector('#speedcontrol');
+setSpeed2Firebase(0);
 
 speedcontrolDiv.value = 50;
 speedcontrolDiv.onchange=()=>{
-    // alert(speedcontrolDiv.value);
+    setSpeed2Firebase(speedcontrolDiv.value);
 }
 
 resetbtn.onclick=()=>{
+    setSpeed2Firebase(50);
     speedcontrolDiv.value =50;
 }
+
 
 
 
@@ -386,6 +443,7 @@ footerbtn2.onclick=()=>{
     css(directionspeedSection,{
     'display':'none',
     });
+    // setSpeed2Firebase(0);
 }
 
 footerbtn3.onclick=()=>{
@@ -395,9 +453,5 @@ footerbtn3.onclick=()=>{
     css(colorpickSection,{
     'display':'none',
     });
+    setSpeed2Firebase(50);
 }
-
-
-
-
-
