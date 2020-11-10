@@ -332,7 +332,7 @@ for (let index = 0; index < presetElement.length; index++) {
 for (let index = 0; index < stylename.length; index++) {
     // const element = array[index];
     let divbtn = document.createElement('input');
-    divbtn.type = "button"
+    divbtn.type = "button";
     divbtn.className = "stylebtn";
     divbtn.id = "stylebtn"+index;
     divbtn.value = stylename[index].name;
@@ -385,18 +385,31 @@ for (let index = 0; index < stylename.length; index++) {
 //-------------direction control section-------------
 let directioncontrolDiv = document.querySelector('.directioncontrol');
 let resetbtn = document.querySelector('.resetbtn');
+let directionValue = 0;
 
 for (let index = 0; index < 9; index++) {
     let divbtn = document.createElement('input');
-    divbtn.type = "button"
+    // divbtn.type = "button"
+    divbtn.type = "image";
+    divbtn.src = "img/Button/deactive/de"+(index+1)+".png"
     divbtn.className = "directionbtn";
     divbtn.id = "directionbtn"+index;
     divbtn.value = index;
 
     directioncontrolDiv.appendChild(divbtn);
 
+    
     divbtn.onclick=()=>{
-        setMovement2Firebase(index);
+        for (let index2 = 0; index2 < 9; index2++) {
+            let divbtn2 = document.querySelector('#directionbtn'+index2);
+            if(index!=index2){
+                divbtn2.src = "img/Button/deactive/de"+(index2+1)+".png";
+            }else{
+                divbtn.src = "img/Button/active/act"+(index+1)+".png";
+            }
+        }
+        directionValue = index+1;
+        setMovement2Firebase(directionValue);
     }
 }
 
@@ -414,6 +427,11 @@ speedcontrolDiv.onchange=()=>{
 resetbtn.onclick=()=>{
     setSpeed2Firebase(50);
     speedcontrolDiv.value =50;
+    directionValue = 0;
+    for (let index2 = 0; index2 < 9; index2++) {
+            let divbtn2 = document.querySelector('#directionbtn'+index2);
+            divbtn2.src = "img/Button/deactive/de"+(index2+1)+".png";
+    }
 }
 
 
