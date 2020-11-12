@@ -1,5 +1,5 @@
 body{
-    background-color: black;
+    background-color: #181818;
 }
 
 .navbar {
@@ -18,8 +18,10 @@ body{
     text-align: center;
 }
 
-.main{
+.everything{
     margin-top: 130px;
+
+
     /* margin-left: 10%;
     margin-right: 10%; */
     /* display: flex;
@@ -1018,8 +1020,8 @@ position: absolute;
     display: grid;
     grid-template-columns: 80px 80px 80px 80px;
     grid-template-rows: 60px 60px 60px 60px; 
-    column-gap: 10px;
-    row-gap: 15px;
+    column-gap: 11px;
+    row-gap: 11px;
 }
 
 
@@ -1034,6 +1036,7 @@ position: absolute;
     color: #676666;
     border-width: 0px;
     font-size: 15px;
+    font-size: 1vw;
 }
 
 .stylebtn:focus {

@@ -1,4 +1,21 @@
 //----------------initial variable----------------
+const initController = ()=>{
+    
+// Create new link Element 
+var link = document.createElement('link');  
+
+// set the attributes for link element 
+link.rel = 'stylesheet';  
+
+link.type = 'text/css'; 
+
+link.href = 'controller.css';  
+
+// Get HTML head element to append  
+// link element to it  
+document.getElementsByTagName('HEAD')[0].appendChild(link);  
+
+
 let cellElement = document.querySelectorAll('.cell');
 let presetElement = document.querySelectorAll('.presetinput');
 let toggleElement = document.querySelectorAll('.togglebtn');
@@ -57,7 +74,7 @@ let stylename =[
             'color': ['#A72933', '#FCD595','#F7C353','#CBC481','#869D7C'],
         },
         {
-            'name': 'Impressionism',
+            'name': 'Impression',
             'fullname': 'Impressionism',
             'color': ['#E18256', '#F0BA7D','#73A353','#7E82AD','#478EB0'],
         },
@@ -104,9 +121,9 @@ let headerstylename = document.querySelector('.stylename');
 
 const setRoomcolor2Firebase=(roomindex,row_index,col_index)=>{
     firebase.database().ref("Data/Color/Room"+(roomindex+1)).set({
-             "R" :buillding_arr[row_index][col_index].r,
-             "G" :buillding_arr[row_index][col_index].g,
-             "B" :buillding_arr[row_index][col_index].b
+             "red" :buillding_arr[row_index][col_index].r,
+             "green" :buillding_arr[row_index][col_index].g,
+             "blue" :buillding_arr[row_index][col_index].b
     });
 }
 
@@ -385,7 +402,7 @@ for (let index = 0; index < stylename.length; index++) {
 //-------------direction control section-------------
 let directioncontrolDiv = document.querySelector('.directioncontrol');
 let resetbtn = document.querySelector('.resetbtn');
-let directionValue = 0;
+let directionValue = 0;//reset direction
 
 for (let index = 0; index < 9; index++) {
     let divbtn = document.createElement('input');
@@ -433,11 +450,17 @@ resetbtn.onclick=()=>{
             divbtn2.src = "img/Button/deactive/de"+(index2+1)+".png";
     }
 }
+}
+
 
 
 
 
 //-------------footer btn-------------
+const css=(element, style)=> {
+    for (const property in style)
+        element.style[property] = style[property];
+}
 
 let colorpickSection = document.querySelector('.colorpicksection');
 let directionspeedSection = document.querySelector('.directionspeedcontrol');
@@ -451,6 +474,8 @@ let footerbtn3 = document.querySelector('#footerbtn3');
 let footerparent4 = document.querySelector('#footerlink4');
 let footerbtn4 = document.querySelector('#footerbtn4');
 
+let initControllerstatus = 1;
+
 css(colorpickSection,{
 'display':'flex',
 });
@@ -459,6 +484,12 @@ css(directionspeedSection,{
 });
 
 footerbtn2.onclick=()=>{
+    if(initControllerstatus){
+        initController();
+        initControllerstatus = 0;
+    }else{
+
+    }
     css(colorpickSection,{
     'display':'flex',
     });
@@ -486,3 +517,29 @@ footerbtn3.onclick=()=>{
     footerparent3.classList.add('BACTIVE');
     footerparent4.classList.remove('BACTIVE');
 }
+
+
+    css(directionspeedSection,{
+    'display':'none',
+    });
+    css(colorpickSection,{
+    'display':'none',
+    });
+
+// ------------DARM------------
+// 	function zfunc(){
+
+// 		// $(".start").addClass('animate__animated', 'animate__fadeOut');
+// 		const element = document.querySelector('.PAGEONE');
+// 		element.classList.add('animate__animated', 'animate__fadeOut');
+// 		setTimeout(function(){
+// 			element.style.display = "none";
+// 			const element2 = document.querySelector('.PAGETWO');
+// 			element2.style.display = "inline";
+// 			var content = element2.innerHTML;
+// 			element2.innerHTML= content; 
+
+// 			// element2.classList.add('animate__animated', 'animate__fadeInUp');
+//     }, 1000); 
+//     this.insertQ();
+// }
