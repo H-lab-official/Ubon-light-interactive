@@ -1,6 +1,252 @@
-//----------------initial variable----------------
-const initController = ()=>{
+function zfunc(){
+
+		// $(".start").addClass('animate__animated', 'animate__fadeOut');
+		const element = document.querySelector('.PAGEONE');
+		element.classList.add('animate__animated', 'animate__fadeOut');
+		setTimeout(function(){
+			element.style.display = "none";
+			const element2 = document.querySelector('.PAGETWO');
+			element2.style.display = "inline";
+			var content = element2.innerHTML;
+			element2.innerHTML= content; 
+
+			// element2.classList.add('animate__animated', 'animate__fadeInUp');
+    }, 1000); 
     
+    this.insertQ();
+
+    }
+
+    
+    $(async function () {
+        setCookie(null);
+    firebase.database().ref("Data/Q/").limitToFirst(1).on('value', function(snapshot){
+
+        if (snapshot.val() == null ){
+            firebase.database().ref("Data/PresenQ/").limitToFirst(1).once('value', function(snapshot){
+                console.log(snapshot.val().Q);
+                document.getElementById('presenQ').innerHTML = snapshot.val().Q;
+            });
+        }else{
+            document.getElementById('presenQ').innerHTML = Object.keys(snapshot.val())[0];
+            document.getElementById('presenQ1').innerHTML = Object.keys(snapshot.val())[0];
+            let checkQ = getCookie("Q");
+            if(checkQ != "")
+            {
+            console.log(checkQ);
+             document.getElementById('wait1').innerHTML = checkQ -Object.keys(snapshot.val())[0];
+             let remain_q = document.getElementById('wait1').innerHTML;
+            if (remain_q == '0'){
+                Qzero();
+            }
+             // document.getElementById('wait1').innerHTML = checkQ -Object.keys(snapshot.val())[0];
+            }else{
+             
+            }
+          
+        }
+        let checkQ = getCookie("Q");
+        
+        if(snapshot.val() != null)
+        {
+            if(checkQ == Object.keys(snapshot.val())[0]){
+                timeOut(checkQ);
+            }
+        }
+
+    })
+
+    let checkQ = getCookie("Q");
+    if(checkQ != "")
+    {
+               // $(".start").addClass('animate__animated', 'animate__fadeOut');
+    const element = document.querySelector('.PAGEONE');
+    element.classList.add('animate__animated', 'animate__fadeOut');
+                //ANNOP CODE HERE
+        let remain_q = document.getElementById('wait1').innerHTML;
+        if (remain_q == '0'){
+            // Qzero();
+        }
+        element.style.display = "none";
+        const element2 = document.querySelector('.PAGETWO');
+        element2.style.display = "inline";
+        var content = element2.innerHTML;
+        element2.innerHTML= content; 
+
+        let rest_q = document.getElementById('wait1').innerHTML;
+        console.log("restQQ = "+rest_q);
+
+        // element2.classList.add('animate__animated', 'animate__fadeInUp');
+
+    }
+
+    firebase.database().ref("Data/Q/").limitToFirst(1).on('value',async function(snapshot){
+        document.getElementById('wait').innerHTML = 0; 
+  
+        if(snapshot.val() != undefined || snapshot.val()!=null){
+            var x =await Object.keys(snapshot.val())[0];
+            firebase.database().ref("Data/Q/").once('value',async function(snapshot){
+                console.log("NUM" + snapshot.numChildren() + "    X "+x);
+                document.getElementById('wait').innerHTML =await snapshot.numChildren();
+                // document.getElementById('wait1').innerHTML = Object.keys(snapshot.val())[0]-x+1;
+            });
+            if (snapshot.val() == null ){
+                // document.getElementById('allQ').innerHTML = '<p> คิวทั้งหมด : '+0+'</p>';
+            }else{
+                // document.getElementById('allQ').innerHTML = '<p> คิวทั้งหมด : '+snapshot.val()+'</p>';
+            }
+        }
+
+    })
+    firebase.database().ref("Data/Q/").limitToLast(1).on('value', function(snapshot){
+
+    });
+
+});
+
+
+async function insertQ(){
+  
+
+    let conf=await confirm("คุณต้องการจองคิวหรือไม่ ? ");
+    if(conf ==await true)
+    {    
+        
+     var result =await  this.validateQ().then(function(params) {
+                 return params
+             });
+     let count =parseInt(result)+1;
+ 
+   this.setCookie(count);
+ 
+      await  firebase.database().ref("Data/Q/"+parseInt(count)).set({
+             "TimeStart" : "X",
+             "TimeEnd":"A"
+             
+        });
+     await  firebase.database().ref("Data/AllQ/Q/").set(
+         parseInt(count)
+    );
+    await  firebase.database().ref("Data/PresenQ/Q/").set(
+        parseInt(count)
+   );
+    }
+
+    firebase.database().ref("Data/Q/").limitToFirst(1).once('value', function(snapshot){
+        let checkQ = getCookie("Q");
+        if(checkQ != "")
+        {
+            console.log(checkQ);
+         document.getElementById('wait1').innerHTML = checkQ -Object.keys(snapshot.val())[0];
+         // document.getElementById('wait1').innerHTML = checkQ -Object.keys(snapshot.val())[0];
+
+
+        //ANNOP CODE HERE
+        let remain_q = document.getElementById('wait1').innerHTML;
+        // let remain_q = checkQ -Object.keys(snapshot.val())[0];
+        if (remain_q == '0'){
+            // Qzero();
+        }
+
+
+        }else{
+         
+        }
+    });
+ }
+ 
+ async function validateQ() {
+     return new Promise(async (resolve, reject) => {
+         await firebase.database().ref("Data/AllQ/Q").once('value',async function(snapshot){
+             if(snapshot.val() == null){
+                 resolve(0);
+                 return
+             }
+         Q =await snapshot.val(); 
+         resolve(Q);
+         return
+        });
+ 
+     });
+ }
+ 
+ async function setCookie(count) {
+     if(count == null)
+     {
+         var qcookie = this.getCookie("Q");
+         document.getElementById('yourQ').innerHTML = qcookie;
+ 
+         return
+     }
+     var mydate = new Date();
+     mydate.setTime(mydate.getTime() + 4800 * 1000);
+     console.log(mydate)
+     document.cookie = `Q=${count}; expires= ${mydate} `
+     var qcookie = this.getCookie("Q");
+     document.getElementById('yourQ').innerHTML =  qcookie;
+ }
+ 
+ function getCookie(cname) {
+     var name = cname + "=";
+     var decodedCookie = decodeURIComponent(document.cookie);
+     var ca = decodedCookie.split(';');
+     for(var i = 0; i <ca.length; i++) {
+       var c = ca[i];
+       while (c.charAt(0) == ' ') {
+         c = c.substring(1);
+       }
+       if (c.indexOf(name) == 0) {
+         return c.substring(name.length, c.length);
+       }
+     }
+     return "";
+   }
+ 
+  async function  timeOut(Q) {
+      var count = 10;
+      console.log("cookidfdfde = "+getCookie('Time'));
+      if(getCookie('Time')<=count && getCookie('Time')!=""){
+          count = getCookie('Time');
+      }
+    
+      var x=   setInterval(async function()
+     { 
+         count--;
+         console.log(count);
+         document.cookie = `Time=${count}`;
+         console.log("cookie = "+getCookie('Time'));
+         document.querySelector('.navbar').innerHTML = `<h2>คุณมีเวลาเหลือ ${getCookie('Time')} วินาที</h2>`;
+        // document.getElementById('time').innerHTML = '<p> เหลือเวลา : '+ count+'</p>';
+         if(count == 0)
+         {
+             
+             console.log(count);
+             clearInterval(x);
+             var mydate = new Date();
+             mydate.setTime(mydate.getTime() - 1);
+             document.cookie = "Q=null; expires=" + mydate.toGMTString(); 
+             document.cookie = "Time=null; expires=" + mydate.toGMTString(); 
+             firebase.database().ref("Data/Q/"+Q).remove();
+             location.reload();
+
+            }
+     }, 1000);
+     
+   }
+
+
+
+
+
+
+
+
+
+
+
+
+const initController = ()=>{
+//----------------initial variable----------------
 // Create new link Element 
 var link = document.createElement('link');  
 
@@ -138,6 +384,8 @@ const setRoomcolor2Firebase=(roomindex,row_index,col_index)=>{
 
 
 const setMovement2Firebase=(movement_state)=>{
+
+
     firebase.database().ref("Data/Movement").set({
              "Status" : movement_state,
     });
@@ -436,14 +684,14 @@ for (let index = 0; index < 9; index++) {
 let speedcontrolDiv = document.querySelector('#speedcontrol');
 setSpeed2Firebase(0);
 
-speedcontrolDiv.value = 50;
+speedcontrolDiv.value = 5;
 speedcontrolDiv.onchange=()=>{
     setSpeed2Firebase(speedcontrolDiv.value);
 }
 
 resetbtn.onclick=()=>{
-    setSpeed2Firebase(50);
-    speedcontrolDiv.value =50;
+    setSpeed2Firebase(5);
+    speedcontrolDiv.value =5;
     directionValue = 0;
     for (let index2 = 0; index2 < 9; index2++) {
             let divbtn2 = document.querySelector('#directionbtn'+index2);
@@ -457,6 +705,12 @@ resetbtn.onclick=()=>{
 
 
 //-------------footer btn-------------
+
+let navbar = document.querySelector('.navbar');
+let firstpage = document.querySelector('.firstpage');
+let splashpage = document.querySelector('.splash');
+let aboutUSsection = document.querySelector('.aboutUSsection');
+// let aboutUSdiv = document.querySelector('.aboutUSdiv');
 const css=(element, style)=> {
     for (const property in style)
         element.style[property] = style[property];
@@ -464,6 +718,7 @@ const css=(element, style)=> {
 
 let colorpickSection = document.querySelector('.colorpicksection');
 let directionspeedSection = document.querySelector('.directionspeedcontrol');
+
 
 let footerparent1 = document.querySelector('#footerlink1');
 let footerbtn1 = document.querySelector('#footerbtn1');
@@ -474,72 +729,116 @@ let footerbtn3 = document.querySelector('#footerbtn3');
 let footerparent4 = document.querySelector('#footerlink4');
 let footerbtn4 = document.querySelector('#footerbtn4');
 
-let initControllerstatus = 1;
-
-css(colorpickSection,{
-'display':'flex',
-});
+// let initControllerstatus = 1;
 css(directionspeedSection,{
-'display':'none',
+    'display':'none',
+    });
+css(colorpickSection,{
+    'display':'none',
+    });
+css(aboutUSsection,{
+    'display':'none',
 });
 
-footerbtn2.onclick=()=>{
-    if(initControllerstatus){
-        initController();
-        initControllerstatus = 0;
-    }else{
 
+const Qzero =()=>{
+    css(splashpage,{
+        'display':'none',
+        }); 
+    css(firstpage,{
+        'display':'none',
+        }); 
+    initController();
+    setTimeout(() => { 
+        
+        css(colorpickSection,{
+        'display':'flex',
+        });
+        colorpickSection.classList.add('animate__animated', 'animate__fadeInUp');
+        footerparent1.classList.remove('BACTIVE');
+        footerparent2.classList.add('BACTIVE');
+        footerparent3.classList.remove('BACTIVE');
+        footerparent4.classList.remove('BACTIVE');
+    }, 1000);
+
+        footerbtn2.onclick=()=>{
+        // if(initControllerstatus){
+        //     initController();
+        //     initControllerstatus = 0;
+        // } 
+
+        css(firstpage,{
+        'display':'none',
+        }); 
+
+        css(colorpickSection,{
+        'display':'flex',
+        });
+        css(directionspeedSection,{
+        'display':'none',
+        });
+        css(aboutUSsection,{
+        'display':'none',
+        });
+        colorpickSection.classList.add('animate__animated', 'animate__fadeInUp');
+        // setSpeed2Firebase(0);
+        footerparent1.classList.remove('BACTIVE');
+        footerparent2.classList.add('BACTIVE');
+        footerparent3.classList.remove('BACTIVE');
+        footerparent4.classList.remove('BACTIVE');
     }
-    css(colorpickSection,{
-    'display':'flex',
-    });
-    css(directionspeedSection,{
-    'display':'none',
-    });
-    // setSpeed2Firebase(0);
-    footerparent1.classList.remove('BACTIVE');
-    footerparent2.classList.add('BACTIVE');
-    footerparent3.classList.remove('BACTIVE');
-    footerparent4.classList.remove('BACTIVE');
+
+    footerbtn3.onclick=()=>{
+        // if(initControllerstatus){
+        //     initController();
+        //     initControllerstatus = 0;
+        // }
+
+        css(firstpage,{
+        'display':'none',
+        }); 
+
+        css(aboutUSsection,{
+        'display':'none',
+        });
+        css(colorpickSection,{
+        'display':'none',
+        });
+        css(directionspeedSection,{
+        'display':'flex',
+        });
+        directionspeedSection.classList.add('animate__animated', 'animate__fadeInUp');
+        // setSpeed2Firebase(0);
+        footerparent1.classList.remove('BACTIVE');
+        footerparent2.classList.remove('BACTIVE');
+        footerparent3.classList.add('BACTIVE');
+        footerparent4.classList.remove('BACTIVE');
+        
+    }
+
+
+    footerbtn4.onclick=()=>{
+        css(directionspeedSection,{
+        'display':'none',
+        });
+        css(colorpickSection,{
+        'display':'none',
+        });
+        // setSpeed2Firebase(5);
+
+        footerparent1.classList.remove('BACTIVE');
+        footerparent2.classList.remove('BACTIVE');
+        footerparent3.classList.remove('BACTIVE');
+        footerparent4.classList.add('BACTIVE');
+
+        css(firstpage,{
+        'display':'none',
+        });
+
+        css(aboutUSsection,{
+        'display':'inline',
+        });
+
+        aboutUSsection.classList.add('animate__animated', 'animate__fadeInUp');
+    }
 }
-
-footerbtn3.onclick=()=>{
-    css(directionspeedSection,{
-    'display':'flex',
-    });
-    css(colorpickSection,{
-    'display':'none',
-    });
-    setSpeed2Firebase(50);
-
-    footerparent1.classList.remove('BACTIVE');
-    footerparent2.classList.remove('BACTIVE');
-    footerparent3.classList.add('BACTIVE');
-    footerparent4.classList.remove('BACTIVE');
-}
-
-
-    css(directionspeedSection,{
-    'display':'none',
-    });
-    css(colorpickSection,{
-    'display':'none',
-    });
-
-// ------------DARM------------
-// 	function zfunc(){
-
-// 		// $(".start").addClass('animate__animated', 'animate__fadeOut');
-// 		const element = document.querySelector('.PAGEONE');
-// 		element.classList.add('animate__animated', 'animate__fadeOut');
-// 		setTimeout(function(){
-// 			element.style.display = "none";
-// 			const element2 = document.querySelector('.PAGETWO');
-// 			element2.style.display = "inline";
-// 			var content = element2.innerHTML;
-// 			element2.innerHTML= content; 
-
-// 			// element2.classList.add('animate__animated', 'animate__fadeInUp');
-//     }, 1000); 
-//     this.insertQ();
-// }
