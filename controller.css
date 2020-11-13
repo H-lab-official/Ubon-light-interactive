@@ -1,9 +1,32 @@
 body{
-    background-color: black;
+    background-color: #181818;
 }
 
-.main{
+.stupid{
+    color: #181818;
     margin-top: 100px;
+}
+
+.navbar {
+  overflow: hidden;
+  background-color: white;
+  position: fixed; /* Set the navbar to fixed position */
+  /* top: 2rem;  */
+  top: 0;
+  width: 100%; /* Full width */
+  display: flex;
+  justify-content: center;
+  z-index: 100;
+}
+
+.navbar h2{
+    text-align: center;
+}
+
+.everything{
+    margin-top: 130px;
+    margin-bottom: 200px;
+
     /* margin-left: 10%;
     margin-right: 10%; */
     /* display: flex;
@@ -18,20 +41,21 @@ body{
     flex-direction: column;
      align-items: center;
     justify-content: center;
-    margin-bottom: 200px;
+    /* margin-bottom: 200px; */
 }
 
 .directionspeedcontrol{
     display: flex;
-    flex-direction: column;
-     align-items: center;
+    flex-direction: column; 
+    align-items: center;
     justify-content: center;
-    margin-bottom: 200px;
+    /* margin-bottom: 200px; */
 }
 
 /* --------------headerinfomation-------------- */
 .headerinfomation{
     padding: 0 60px 0 60px;
+    margin-bottom: 20px;
     color: white;
     text-align: center;
 }
@@ -39,7 +63,7 @@ body{
 /* --------------ToggleControl-------------- */
 
 .togglecontrol{
-    margin-bottom: 20px;
+    margin-bottom: 40px;
 }
 
 .groupbutton{
@@ -85,6 +109,11 @@ body{
 .building{
     /* position: absolute; */
     /* right: 31%; */
+    /* box-sizing: content-box; */
+}
+
+*, ::after, ::before {
+    box-sizing: content-box;
 }
 
 
@@ -938,8 +967,7 @@ position: absolute;
     /* display: flex;
     justify-content: center; */
     display: inline-flex;
-    margin-bottom: 34px;
-    margin-left: 10px;
+    margin-left: -10px;
 }
 
 .pickerpreset{
@@ -988,16 +1016,22 @@ position: absolute;
 }
 
 
+.pickermanual{
+    margin-top: 30px;
+}
+
+
 .groupstyle{
     display: grid;
     grid-template-columns: 80px 80px 80px 80px;
     grid-template-rows: 60px 60px 60px 60px; 
-    column-gap: 10px;
-    row-gap: 15px;
+    column-gap: 11px;
+    row-gap: 11px;
 }
 
 
 .stylename{
+    margin: 10px 0 25px 0;
     color: white;
     text-align: center;
 }
@@ -1006,7 +1040,8 @@ position: absolute;
     background-color: #333333;
     color: #676666;
     border-width: 0px;
-    font-size: 15px;
+    font-size: 14px;
+    /* font-size: 1vw; */
 }
 
 .stylebtn:focus {
@@ -1041,10 +1076,11 @@ position: absolute;
 
 .directioncontrol{
     display: grid;
-    grid-template-columns: 80px 80px 80px ;
-    grid-template-rows: 80px 80px 80px ; 
-    column-gap: 10px;
+    grid-template-columns: 85px 85px 85px ;
+    grid-template-rows: 85px 85px 85px ; 
+    column-gap: 15px;
     row-gap: 15px;
+    margin: 30px 0 60px 0;
 }
 
 .directioncontrol input{
@@ -1059,15 +1095,45 @@ position: absolute;
     /* color: #231F20;
     background-color: #F2F2F2; */
     color:black;
-    background-color: white;
+    background-color: #333333;
+}
+
+.speedlabelimg{
+    display: flex;
+    justify-content: space-between;
+}
+
+.turtle img{
+    height: 30px;
+    position: relative;
+    bottom: -10px;
+}
+.rabbit img{
+    height: 44px;
+    position: relative;
+    bottom: 3px;
+}
+
+.speedlabeltext{
+    display: flex;
+    justify-content: space-between;
 }
 
 
+.turtle p{
+    position: relative;
+    bottom: 5px;
+}
+.rabbit p{
+    position: relative;
+    bottom: 5px;
+}
 
 .speedcontrol input{
     width: 100%;
     position: relative;
-    left: -6px;
+    /* left: -6px; */
+    left: 0px;
 }
 
 .resetbtnwrap{
@@ -1090,7 +1156,7 @@ position: absolute;
     background-color: rgb(228, 228, 228);
 }
 
-.footer {
+/* .footer {
    position: fixed;
    left: 0;
    bottom: 0;
@@ -1098,7 +1164,47 @@ position: absolute;
    background-color: white;
    color: black;
    text-align: center;
+} */
+
+.mobile-footer{
+    z-index: 99;
 }
 
 
 
+.about{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.about h1{
+    font-size: 50px;
+    margin-bottom: 30px;
+}
+
+.aboutcontent{
+    padding: 0 25% 0 25%;
+}
+
+.contact{
+    margin-top: 40px;
+}
+
+.contact a{
+    color: white;
+}
+
+.about-logo img{
+    width: 170px;
+    margin: 25px 0 25px 0;
+}
+
+
+
+
+/* ---------------------------DARM */
+#Qbutton{
+    background-color: white;
+}
