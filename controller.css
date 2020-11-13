@@ -1040,8 +1040,8 @@ position: absolute;
     background-color: #333333;
     color: #676666;
     border-width: 0px;
-    font-size: 15px;
-    font-size: 1vw;
+    font-size: 14px;
+    /* font-size: 1vw; */
 }
 
 .stylebtn:focus {
@@ -1201,3 +1201,10 @@ position: absolute;
     margin: 25px 0 25px 0;
 }
 
+
+
+
+/* ---------------------------DARM */
+#Qbutton{
+    background-color: white;
+}
