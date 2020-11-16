@@ -2,6 +2,7 @@ const firebase = require('firebase');
 const controller = require('./src/Controller')
 const room = require('./src/Room');
 const validate = require('./src/Controller');
+const counter = require('./src/Counter');
 const osc = require("osc"),
     http = require("http"),
     WebSocket = require("ws");
@@ -73,6 +74,8 @@ class Index{
         // this.getData(this.udpPort,1);
         // this.getData(this.udpPort,1);
         // this.getData(this.udpPort,1);
+
+        new counter().removeQ();
     }
 
    async getData(xxx,numberroom){

@@ -52,6 +52,8 @@ function zfunc(){
             if(checkQ == Object.keys(snapshot.val())[0]){
                 timeOut(checkQ);
             }
+
+
         }
 
     })
@@ -70,10 +72,21 @@ function zfunc(){
         element2.innerHTML= content; 
 
         let rest_q = document.getElementById('wait1').innerHTML;
-        console.log("restQQ = "+rest_q);
+        console.log("restQQ = "+checkQ);
 
         // element2.classList.add('animate__animated', 'animate__fadeInUp');
-
+        
+    firebase.database().ref("Data/Q/"+checkQ).on('value', function (params) {
+        console.log("validate count ="+JSON.stringify(params.val()));
+        if(params.val()===null){
+             var mydate = new Date();
+             mydate.setTime(mydate.getTime() - 1);
+             document.cookie = "Q=null; expires=" + mydate.toGMTString(); 
+             document.cookie = "Time=null; expires=" + mydate.toGMTString();
+             location.reload();
+        }
+    })
+        
     }
 
     firebase.database().ref("Data/Q/").limitToFirst(1).on('value',async function(snapshot){
@@ -114,7 +127,7 @@ async function insertQ(){
      let count =parseInt(result)+1;
  
    this.setCookie(count);
- 
+             
       await  firebase.database().ref("Data/Q/"+parseInt(count)).set({
              "TimeStart" : "X",
              "TimeEnd":"A"
@@ -126,6 +139,17 @@ async function insertQ(){
     await  firebase.database().ref("Data/PresenQ/Q/").set(
         parseInt(count)
    );
+    firebase.database().ref("Data/Q/"+count).on('value', function (params) {
+        console.log("validate count ="+JSON.stringify(params.val()));
+        if(params.val()===null){
+             var mydate = new Date();
+             mydate.setTime(mydate.getTime() - 1);
+             document.cookie = "Q=null; expires=" + mydate.toGMTString(); 
+             document.cookie = "Time=null; expires=" + mydate.toGMTString();
+             location.reload();
+        }
+    })
+//    console.log('COOQQQQQQQ = '+JSON.stringify(count));
     }
 
     firebase.database().ref("Data/Q/").limitToFirst(1).once('value', function(snapshot){
@@ -191,7 +215,7 @@ async function insertQ(){
    }
  
   async function  timeOut(Q) {
-      var count = 90;
+      var count = 120;
     //   alert(getCookie('Time'))
       console.log("cookidfdfde = "+getCookie('Time'));
       if(getCookie('Time')<=count && getCookie('Time')!=""){
