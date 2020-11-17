@@ -300,8 +300,7 @@ const initController = ()=>{
 
     let cellElement = document.querySelectorAll('.cell');
     let presetElement = document.querySelectorAll('.presetinput');
-    let toggleElement = document.querySelectorAll('.togglebtn');
-    let toggleState = true;
+    let toggleState = 1;
     let hexpick = '#FFFFFF';
     let presetstatus = 1;
     let presetnowcolor = ['#383838','#383838','#383838','#383838','#383838'];
@@ -417,85 +416,6 @@ const initController = ()=>{
     }
 
 
-    //---------------- mode color pick toggle----------------
-    const toggleSwitch = ()=>{
-        let toggleDivCustom = document.querySelector('#custombtn');
-        let toggleDivStyle = document.querySelector('#stylebtn');
-        let pickerManualDivStyle = document.querySelector('.pickermanual');
-        let pickerStyleDivStyle = document.querySelector('.pickerstyle');
-        if(toggleState){
-            css(toggleDivCustom, {
-            'background-color': 'white',
-            'color': 'black',
-            'border-color': 'yellow'
-            });
-            css(toggleDivStyle, {
-            'background-color': '#383838',
-            'color': '#afafaf',
-            'border-color': 'yellow'
-            });
-            css(pickerManualDivStyle,{
-            'display':'block',
-            });
-            css(pickerStyleDivStyle,{
-            'display':'none',
-            });
-        }else{
-            css(toggleDivCustom, {
-            'background-color': '#383838',
-            'color': '#afafaf',
-            'border-color': 'yellow'
-            });
-            css(toggleDivStyle, {
-            'background-color': 'white',
-            'color': 'black',
-            'border-color': 'yellow'
-            });
-            css(pickerManualDivStyle,{
-            'display':'none',
-            });
-            css(pickerStyleDivStyle,{
-            'display':'block',
-            });
-        }
-        
-    }
-
-    for (let index = 0; index < toggleElement.length; index++) {
-        let html_id = toggleElement[index].id;
-        let toggleDiv = document.querySelector('#'+html_id);
-        let pickerManualDivStyle = document.querySelector('.pickermanual');
-        let pickerStyleDivStyle = document.querySelector('.pickerstyle');
-        if(index==0){
-            css(toggleDiv, {
-            'background-color': 'white',
-            'color': 'black'
-            });
-            
-            toggleDiv.onclick=()=>{
-                toggleState = true;
-                toggleSwitch();
-            }
-        }else{
-            css(toggleDiv, {
-            'background-color': '#383838',
-            'color': '#afafaf'
-            });
-            
-            toggleDiv.onclick=()=>{
-                toggleState = false;
-                toggleSwitch();
-            }
-        }
-        css(pickerManualDivStyle,{
-            'display':'block',
-            });
-            css(pickerStyleDivStyle,{
-            'display':'none',
-            });
-        
-    }
-    
 
     //----------------function about color picker----------------
     colorPicker.on('color:change', function(color) {
@@ -695,7 +615,6 @@ const initController = ()=>{
     }
 
     resetbtn.onclick=()=>{
-        
         setSpeed2Firebase(5);
         speedcontrolDiv.value =5;
         directionValue = 0;
@@ -703,9 +622,9 @@ const initController = ()=>{
                 let divbtn2 = document.querySelector('#directionbtn'+index2);
                 divbtn2.src = "img/Button/deactive/de"+(index2+1)+".png";
         }
-        let divbtnMovementdefault = document.querySelector('#directionbtn'+0);
-        divbtnMovementdefault.src = "img/Button/active/act1.png";
-        setMovement2Firebase(1);
+        // let divbtnMovementdefault = document.querySelector('#directionbtn'+0);
+        // divbtnMovementdefault.src = "img/Button/active/act1.png";
+        setMovement2Firebase(10);
     }
 }
 
@@ -766,6 +685,7 @@ const css=(element, style)=> {
         element.style[property] = style[property];
 }
 
+let togglecontrolSection = document.querySelector('.togglecontrol');
 let colorpickSection = document.querySelector('.colorpicksection');
 let directionspeedSection = document.querySelector('.directionspeedcontrol');
 
@@ -779,7 +699,7 @@ let footerbtn3 = document.querySelector('#footerbtn3');
 let footerparent4 = document.querySelector('#footerlink4');
 let footerbtn4 = document.querySelector('#footerbtn4');
 
-
+css(togglecontrolSection,{'display':'none',});
 css(directionspeedSection,{'display':'none',});
 css(colorpickSection,{'display':'none',});
 css(aboutUSsection,{'display':'none',});
@@ -791,65 +711,147 @@ const Qzero =()=>{
     css(firstpage,{'display':'none',}); 
     initController(); //init light,movement,speed controller
     let t1= setTimeout(() => { 
+        css(togglecontrolSection,{'display':'flex',});
         css(colorpickSection,{'display':'flex',});
         colorpickSection.classList.add('animate__animated', 'animate__fadeInUp');
-        footerparent1.classList.remove('BACTIVE');
-        footerparent2.classList.add('BACTIVE');
-        footerparent3.classList.remove('BACTIVE');
-        footerparent4.classList.remove('BACTIVE');
-        let divbtnMovementdefault = document.querySelector('#directionbtn'+0);
-        divbtnMovementdefault.src = "img/Button/active/act1.png";
+        // footerparent1.classList.remove('BACTIVE');
+        // footerparent2.classList.add('BACTIVE');
+        // footerparent3.classList.remove('BACTIVE');
+        // footerparent4.classList.remove('BACTIVE');
+        // let divbtnMovementdefault = document.querySelector('#directionbtn'+0);
+        // divbtnMovementdefault.src = "img/Button/active/act1.png";
         setMovement2Firebase(10);
     }, 1000);
+//---------------- mode color pick toggle----------------
+    const toggleSwitch = ()=>{
+        let toggleDivCustom = document.querySelector('#custombtn');
+        let toggleDivStyle = document.querySelector('#stylebtn');
+        let toggleDivEffect = document.querySelector('#effectbtn');
+        let pickerManualDivStyle = document.querySelector('.pickermanual');
+        let pickerStyleDivStyle = document.querySelector('.pickerstyle');
 
-    //--- light palette control button ---//
-    footerbtn2.onclick=()=>{
-        css(firstpage,{'display':'none',}); 
-        css(colorpickSection,{'display':'flex',});
-        css(directionspeedSection,{'display':'none',});
-        css(aboutUSsection,{'display':'none',});
-        colorpickSection.classList.add('animate__animated', 'animate__fadeInUp');
-        footerparent1.classList.remove('BACTIVE');
-        footerparent2.classList.add('BACTIVE');
-        footerparent3.classList.remove('BACTIVE');
-        footerparent4.classList.remove('BACTIVE');
-        setMovement2Firebase(10);
-        setSpeed2Firebase(0);
-    }
-
-    //--- movement and speed control button ---//
-    footerbtn3.onclick=()=>{
-        css(firstpage,{'display':'none',}); 
-        css(aboutUSsection,{'display':'none',});
-        css(colorpickSection,{'display':'none',});
-        css(directionspeedSection,{'display':'flex',});
-        directionspeedSection.classList.add('animate__animated', 'animate__fadeInUp');
-        setMovement2Firebase(1);
-        for (let index2 = 0; index2 < 9; index2++) {
-                let divbtn2 = document.querySelector('#directionbtn'+index2);
-                divbtn2.src = "img/Button/deactive/de"+(index2+1)+".png";
+        let colorpickSection = document.querySelector('.colorpicksection');
+        let directionspeedSection = document.querySelector('.directionspeedcontrol');
+        switch (toggleState) {
+            case 1:
+                css(colorpickSection, {'display':'flex',});
+                css(directionspeedSection, {'display':'none',});
+                css(toggleDivStyle, {'background-color': 'white','color': 'black','border-color': 'yellow'});
+                css(toggleDivCustom, {'background-color': '#383838','color': '#afafaf','border-color': 'yellow'});
+                css(toggleDivEffect, {'background-color': '#383838','color': '#afafaf','border-color': 'yellow'});
+                css(pickerStyleDivStyle,{'display':'block',});
+                css(pickerManualDivStyle,{'display':'none',});
+                setMovement2Firebase(10);
+                break;
+            case 2:
+                css(colorpickSection, {'display':'flex',});
+                css(directionspeedSection, {'display':'none',});
+                css(toggleDivStyle, {'background-color': '#383838','color': '#afafaf','border-color': 'yellow'});
+                css(toggleDivCustom, {'background-color': 'white','color': 'black','border-color': 'yellow'});
+                css(toggleDivEffect, {'background-color': '#383838','color': '#afafaf','border-color': 'yellow'});
+                css(pickerStyleDivStyle,{'display':'none',});
+                css(pickerManualDivStyle,{'display':'block',});
+                setMovement2Firebase(10);
+                break;
+            case 3:
+                css(colorpickSection, {'display':'none',});
+                css(directionspeedSection, {'display':'flex',});
+                css(toggleDivStyle, {'background-color': '#383838','color': '#afafaf','border-color': 'yellow'});
+                css(toggleDivCustom, {'background-color': '#383838','color': '#afafaf','border-color': 'yellow'});
+                css(toggleDivEffect, {'background-color': 'white','color': 'black','border-color': 'yellow'});
+                css(pickerStyleDivStyle,{'display':'none',});
+                css(pickerManualDivStyle,{'display':'none',});
+                directionspeedSection.classList.add('animate__animated', 'animate__fadeInUp');
+                // setMovement2Firebase(10);
+                setMovement2Firebase(10);
+                setSpeed2Firebase(5);
+                break;
+        
+            default:
+                break;
         }
-        let divbtnMovementdefault = document.querySelector('#directionbtn'+0);
-        divbtnMovementdefault.src = "img/Button/active/act1.png";
-        let speedcontrolDiv = document.querySelector('#speedcontrol');
-        speedcontrolDiv.value =5;
-        setSpeed2Firebase(5);
-        footerparent1.classList.remove('BACTIVE');
-        footerparent2.classList.remove('BACTIVE');
-        footerparent3.classList.add('BACTIVE');
-        footerparent4.classList.remove('BACTIVE');
+        
     }
 
-    //--- aboutUS button ---//
-    footerbtn4.onclick=()=>{
-        css(directionspeedSection,{'display':'none',});
-        css(colorpickSection,{'display':'none',});
-        css(firstpage,{'display':'none',});
-        css(aboutUSsection,{'display':'flex',});
-        aboutUSsection.classList.add('animate__animated', 'animate__fadeInUp');
-        footerparent1.classList.remove('BACTIVE');
-        footerparent2.classList.remove('BACTIVE');
-        footerparent3.classList.remove('BACTIVE');
-        footerparent4.classList.add('BACTIVE');
+    let toggleElement = document.querySelectorAll('.togglebtn');
+    for (let index = 0; index < toggleElement.length; index++) {
+        let html_id = toggleElement[index].id;
+        let toggleDiv = document.querySelector('#'+html_id);
+        switch (index) {
+            case 0:
+                css(toggleDiv, {'background-color': 'white','color': 'black'});
+                toggleDiv.onclick=()=>{
+                    toggleState = 1;
+                    toggleSwitch();
+                }
+                break;
+            case 1:
+                css(toggleDiv, {'background-color': '#383838','color': '#afafaf'});
+                toggleDiv.onclick=()=>{
+                    toggleState = 2;
+                    toggleSwitch();
+                }
+                break;
+            case 2:
+                css(toggleDiv, {'background-color': '#383838','color': '#afafaf'});
+                toggleDiv.onclick=()=>{
+                    toggleState = 3;
+                    toggleSwitch();
+                }
+                break;
+        
+            default:
+                break;
+        }
     }
+    //--- light palette control button ---//
+    // footerbtn2.onclick=()=>{
+    //     css(firstpage,{'display':'none',}); 
+    //     css(colorpickSection,{'display':'flex',});
+    //     css(directionspeedSection,{'display':'none',});
+    //     css(aboutUSsection,{'display':'none',});
+    //     colorpickSection.classList.add('animate__animated', 'animate__fadeInUp');
+    //     footerparent1.classList.remove('BACTIVE');
+    //     footerparent2.classList.add('BACTIVE');
+    //     footerparent3.classList.remove('BACTIVE');
+    //     footerparent4.classList.remove('BACTIVE');
+    //     setMovement2Firebase(10);
+    //     setSpeed2Firebase(0);
+    // }
+
+    // //--- movement and speed control button ---//
+    // footerbtn3.onclick=()=>{
+    //     css(firstpage,{'display':'none',}); 
+    //     css(aboutUSsection,{'display':'none',});
+    //     css(colorpickSection,{'display':'none',});
+    //     css(directionspeedSection,{'display':'flex',});
+    //     directionspeedSection.classList.add('animate__animated', 'animate__fadeInUp');
+    //     setMovement2Firebase(1);
+    //     for (let index2 = 0; index2 < 9; index2++) {
+    //             let divbtn2 = document.querySelector('#directionbtn'+index2);
+    //             divbtn2.src = "img/Button/deactive/de"+(index2+1)+".png";
+    //     }
+    //     let divbtnMovementdefault = document.querySelector('#directionbtn'+0);
+    //     divbtnMovementdefault.src = "img/Button/active/act1.png";
+    //     let speedcontrolDiv = document.querySelector('#speedcontrol');
+    //     speedcontrolDiv.value =5;
+    //     setSpeed2Firebase(5);
+    //     footerparent1.classList.remove('BACTIVE');
+    //     footerparent2.classList.remove('BACTIVE');
+    //     footerparent3.classList.add('BACTIVE');
+    //     footerparent4.classList.remove('BACTIVE');
+    // }
+
+    // //--- aboutUS button ---//
+    // footerbtn4.onclick=()=>{
+    //     css(directionspeedSection,{'display':'none',});
+    //     css(colorpickSection,{'display':'none',});
+    //     css(firstpage,{'display':'none',});
+    //     css(aboutUSsection,{'display':'flex',});
+    //     aboutUSsection.classList.add('animate__animated', 'animate__fadeInUp');
+    //     footerparent1.classList.remove('BACTIVE');
+    //     footerparent2.classList.remove('BACTIVE');
+    //     footerparent3.classList.remove('BACTIVE');
+    //     footerparent4.classList.add('BACTIVE');
+    // }
 }
