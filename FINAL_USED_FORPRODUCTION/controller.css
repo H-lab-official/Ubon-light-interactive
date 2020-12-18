@@ -1,0 +1,1247 @@
+body{
+    background-color: #181818;
+}
+
+.stupid{
+    color: #181818;
+    margin-top: 100px;
+}
+
+.navbar {
+    overflow: hidden;
+    background-color: white;
+    position: fixed;
+    /* top: 2rem; */
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    z-index: 100;
+    margin: 0;
+    padding: 0;
+    padding-top: 5px;
+  
+}
+
+.navbar h2{
+    text-align: center;
+    font-size: 1em;
+}
+
+.everything{
+    margin-top: 75px;
+    margin-bottom: 200px;
+
+    /* margin-left: 10%;
+    margin-right: 10%; */
+    /* display: flex;
+    
+    flex-direction: column;
+     align-items: center;
+    justify-content: center; */
+}
+
+.colorpicksection{
+    display: flex;
+    flex-direction: column;
+     align-items: center;
+    justify-content: center;
+    /* margin-bottom: 200px; */
+}
+
+.directionspeedcontrol{
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    justify-content: center;
+    /* margin-bottom: 200px; */
+}
+
+/* --------------headerinfomation-------------- */
+.headerinfomation{
+    padding: 0 60px 0 60px;
+    margin-bottom: 20px;
+    color: white;
+    text-align: center;
+}
+
+/* --------------ToggleControl-------------- */
+
+.togglecontrol{
+
+    /* padding: 0 32% 0 32%; */
+    display: flex;
+    flex-direction: column;
+     align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+    
+}
+
+.togglecontrol .groupbutton{
+    background-color: #383838;
+    padding: 5px 7px;
+    border-radius: 42px;
+    /* width: 50%; */
+    /* margin: 0 30px 0 30px; */
+    
+}
+
+/* .togglebtn{
+    background-color: white;
+    padding: 7px 12px;
+    border-radius: 42px;
+    border-width: 0px;
+} */
+
+.togglebtn{
+    color: #afafaf;
+    background-color: #383838;
+    padding: 7px 12px; 
+    border-radius: 42px;
+    border-width: 0px; 
+}
+
+
+
+.togglebtn:focus {
+    outline: none;
+    background-color: white;
+    padding: 7px 12px;
+    border-radius: 42px;
+    border-width: 0px;
+}
+
+/* --------------End ToggleControl-------------- */
+
+
+/* --------------Building-------------- */
+
+
+
+
+.building{
+    /* position: absolute; */
+    /* right: 31%; */
+    /* box-sizing: content-box; */
+}
+
+*, ::after, ::before {
+    box-sizing: content-box;
+}
+
+
+.buildingtop{
+  /* width: 18.75rem;
+  height: 10.625rem; */
+
+  /* width: 40rem;
+  height: 22.66rem; */
+    width: 300px;
+  height: 170px;
+  background-color: #c0c0c0;
+  /* position: absolute;
+  left: initial;
+  top: initial; */
+}
+
+
+
+.roof{
+    width: 100%;
+    height: 20px;
+    
+    background-color: white;
+    border-style: solid;
+    border-color: black;
+    border-width: 3px;
+    /* border-radius: 0 0 10px 0; */
+    position: relative;
+    right: 9px;
+    /* right: 0.2em; */
+}
+
+.verticalA{
+    width: 100%;
+    height: 100%;
+    background-color: none;
+    position: relative;
+    top: -26px;
+    z-index: 2;
+}
+
+.verticalA .vertical1{
+    width: 7px;
+    height: 103%;
+    margin-left: 16px;
+    background-color: white;
+    border-style: solid;
+    border-color: black;
+    border-width: 3px;
+    position: absolute;
+    top:-9px;
+    z-index: 2;
+}
+
+.verticalA .vertical2{
+    width: 7px;
+    height: 103%;
+    margin-left: 71px;
+    background-color: white;
+    border-style: solid;
+    border-color: black;
+    border-width: 3px;
+    position: absolute;
+    top:-9px;
+    z-index: 2;
+}
+
+.verticalA .vertical3{
+    width: 7px;
+    height: 103%;
+    margin-left: 126px;
+    background-color: white;
+    border-style: solid;
+    border-color: black;
+    border-width: 3px;
+    position: absolute;
+    top:-9px;
+    z-index: 2;
+}
+
+.verticalA .vertical4{
+    width: 7px;
+    height: 103%;
+    margin-left: 181px;
+    background-color: white;
+    border-style: solid;
+    border-color: black;
+    border-width: 3px;
+    position: absolute;
+    top:-9px;
+    z-index: 2;
+}
+.verticalA .vertical5{
+    width: 7px;
+    height: 103%;
+    margin-left: 236px;
+    background-color: white;
+    border-style: solid;
+    border-color: black;
+    border-width: 3px;
+    position: absolute;
+    top:-9px;
+    z-index: 2;
+}
+
+.verticalA .vertical6{
+    width: 7px;
+    height: 103%;
+    margin-left: 291px;
+    background-color: white;
+    border-style: solid;
+    border-color: black;
+    border-width: 3px;
+    position: absolute;
+    top:-9px;
+    z-index: 2;
+}
+
+
+
+
+
+.horizontalA {
+    width: 100%;
+    height: 100%;
+    
+    position: relative;
+    top: -140px;
+}
+
+.horizontalA .horizontal0{
+   width: 100%;
+   height: 4px;
+   position: absolute;
+    right: 3px;
+    z-index: 1;
+   background-color: white;
+   border-style: solid;
+    border-color: black;
+    border-width: 3px;
+}
+
+.horizontalA .horizontal1{
+   width: 100%;
+   height: 4px;
+   position: absolute;
+    right: 3px;
+    top: 39px;
+    z-index: 1;
+   background-color: white;
+   border-style: solid;
+    border-color: black;
+    border-width: 3px;
+}
+
+.horizontalA .horizontal2{
+   width: 100%;
+   height: 4px;
+   position: absolute;
+    right: 3px;
+    top: 78px;
+    z-index: 1;
+   background-color: white;
+   border-style: solid;
+    border-color: black;
+    border-width: 3px;
+}
+
+.horizontalA .horizontal3{
+   width: 105%;
+   height: 4px;
+   position: absolute;
+    right: -12px;
+    top: 109px;
+    z-index: 3;                                         ;
+   background-color: white;
+   border-style: solid;
+    border-color: black;
+    border-width: 3px;
+}
+
+
+.horizontalA .horizontalBorder01{
+    position: absolute;
+    left: 26px;
+    top: -9px;
+    width: 42px;
+    height: 13px;
+    background-color: white;
+    z-index: 10;
+    border-style: solid;
+    border-color: black;
+    border-width: 3px;
+}
+
+.horizontalA .blackline1{
+    position: absolute;
+    top: 2px;
+    left:4px;
+    width: 3px;
+    height: 9px;
+    background-color: black;
+    z-index: 10;
+}
+
+.horizontalA  .blackline2{
+    position: absolute;
+    top: 2px;
+    left:10px;
+    width: 3px;
+    height: 9px;
+    background-color: black;
+    z-index: 10;
+}
+
+.horizontalA .blackline3{
+    position: absolute;
+    top: 2px;
+    left:16px;
+    width: 3px;
+    height: 9px;
+    background-color: black;
+    z-index: 10;
+}
+
+.horizontalA  .blackline4{
+    position: absolute;
+    top: 2px;
+    left:22px;
+    width: 3px;
+    height: 9px;
+    background-color: black;
+    z-index: 10;
+}
+
+.horizontalA  .blackline5{
+    position: absolute;
+    top: 2px;
+    left:28px;
+    width: 3px;
+    height: 9px;
+    background-color: black;
+    z-index: 10;
+}
+
+.horizontalA  .blackline6{
+    position: absolute;
+    top: 2px;
+    left:34px;
+    width: 3px;
+    height: 9px;
+    background-color: black;
+    z-index: 10;
+}
+
+.horizontalA .horizontalBorder02{
+    position: absolute;
+    margin-left: 55px;
+    left: 26px;
+    top: -9px;
+    width: 42px;
+    height: 13px;
+    background-color: white;
+    z-index: 10;
+    border-style: solid;
+    border-color: black;
+    border-width: 3px;
+}
+
+.horizontalA .horizontalBorder03{
+    position: absolute;
+    margin-left: 110px;
+    left: 26px;
+    top: -9px;
+    width: 42px;
+    height: 13px;
+    background-color: white;
+    z-index: 10;
+    border-style: solid;
+    border-color: black;
+    border-width: 3px;
+}
+
+.horizontalA .horizontalBorder04{
+    position: absolute;
+    margin-left: 165px;
+    left: 26px;
+    top: -9px;
+    width: 42px;
+    height: 13px;
+    background-color: white;
+    z-index: 10;
+    border-style: solid;
+    border-color: black;
+    border-width: 3px;
+}
+
+.horizontalA .horizontalBorder05{
+    position: absolute;
+    margin-left: 220px;
+    left: 26px;
+    top: -9px;
+    width: 42px;
+    height: 13px;
+    background-color: white;
+    z-index: 10;
+    border-style: solid;
+    border-color: black;
+    border-width: 3px;
+}
+
+.horizontalA .horizontalBorder11{
+    position: absolute;
+    left: 26px;
+    top: 30px;
+    width: 42px;
+    height: 13px;
+    background-color: white;
+    z-index: 10;
+    border-style: solid;
+    border-color: black;
+    border-width: 3px;
+}
+
+.horizontalA .horizontalBorder12{
+    margin-left: 55px;
+    position: absolute;
+    left: 26px;
+    top: 30px;
+    width: 42px;
+    height: 13px;
+    background-color: white;
+    z-index: 10;
+    border-style: solid;
+    border-color: black;
+    border-width: 3px;
+}
+
+.horizontalA .horizontalBorder13{
+    margin-left: 110px;
+    position: absolute;
+    left: 26px;
+    top: 30px;
+    width: 42px;
+    height: 13px;
+    background-color: white;
+    z-index: 10;
+    border-style: solid;
+    border-color: black;
+    border-width: 3px;
+}
+
+.horizontalA .horizontalBorder14{
+    margin-left: 165px;
+    position: absolute;
+    left: 26px;
+    top: 30px;
+    width: 42px;
+    height: 13px;
+    background-color: white;
+    z-index: 10;
+    border-style: solid;
+    border-color: black;
+    border-width: 3px;
+}
+
+.horizontalA .horizontalBorder15{
+    margin-left: 220px;
+    position: absolute;
+    left: 26px;
+    top: 30px;
+    width: 42px;
+    height: 13px;
+    background-color: white;
+    z-index: 10;
+    border-style: solid;
+    border-color: black;
+    border-width: 3px;
+}
+
+.horizontalA .horizontalBorder21{
+    position: absolute;
+    left: 26px;
+    top: 69px;
+    width: 42px;
+    height: 13px;
+    background-color: white;
+    z-index: 10;
+    border-style: solid;
+    border-color: black;
+    border-width: 3px;
+}
+
+.horizontalA .horizontalBorder22{
+    margin-left: 55px;
+    position: absolute;
+    left: 26px;
+    top: 69px;
+    width: 42px;
+    height: 13px;
+    background-color: white;
+    z-index: 10;
+    border-style: solid;
+    border-color: black;
+    border-width: 3px;
+}
+
+.horizontalA .horizontalBorder23{
+    margin-left: 110px;
+    position: absolute;
+    left: 26px;
+    top: 69px;
+    width: 42px;
+    height: 13px;
+    background-color: white;
+    z-index: 10;
+    border-style: solid;
+    border-color: black;
+    border-width: 3px;
+}
+
+.horizontalA .horizontalBorder24{
+    margin-left: 165px;
+    position: absolute;
+    left: 26px;
+    top: 69px;
+    width: 42px;
+    height: 13px;
+    background-color: white;
+    z-index: 10;
+    border-style: solid;
+    border-color: black;
+    border-width: 3px;
+}
+
+.horizontalA .horizontalBorder25{
+    margin-left: 220px;
+    position: absolute;
+    left: 26px;
+    top: 69px;
+    width: 42px;
+    height: 13px;
+    background-color: white;
+    z-index: 10;
+    border-style: solid;
+    border-color: black;
+    border-width: 3px;
+}
+/* buildingbottom */
+
+.buildingbottom{
+  /* width: 18.75rem;
+  height: 12.5rem; */
+    width: 300px;
+  height: 40px;
+  background-color: #6b6b6b;
+  
+}
+
+.verticalB{
+    width: 100%;
+    height: 100%;
+    
+    z-index: 2;
+}
+
+.verticalB .vertical1{
+    width: 6px;
+    height: 92%;
+    margin-left: 16px;
+    background-color: white;
+    border-style: solid;
+    border-color: black;
+    border-width: 3px;
+    position: relative;
+    /* top:-9px; */
+    z-index: 2;
+}
+
+.verticalB .vertical2{
+    width: 6px;
+    height: 92%;
+    margin-left: 71px;
+    background-color: white;
+    border-style: solid;
+    border-color: black;
+    border-width: 3px;
+    position: relative;
+    top:-43px;
+    z-index: 2;
+}
+
+.verticalB .vertical3{
+    width: 6px;
+    height: 92%;
+    margin-left: 126px;
+    background-color: white;
+    border-style: solid;
+    border-color: black;
+    border-width: 3px;
+    position: relative;
+    top:-85px;
+    z-index: 2;
+}
+
+.verticalB .vertical4{
+    width: 6px;
+    height: 92%;
+    margin-left: 181px;
+    background-color: white;
+    border-style: solid;
+    border-color: black;
+    border-width: 3px;
+    position: relative;
+    top:-128px;
+    z-index: 2;
+}
+
+.verticalB .vertical5{
+    width: 6px;
+    height: 92%;
+    margin-left: 236px;
+    background-color: white;
+    border-style: solid;
+    border-color: black;
+    border-width: 3px;
+    position: relative;
+    top:-171px;
+    z-index: 2;
+}
+
+.verticalB .vertical6{
+    width: 6px;
+    height: 92%;
+    margin-left: 291px;
+    background-color: white;
+    border-style: solid;
+    border-color: black;
+    border-width: 3px;
+    position: relative;
+    top:-214px;
+    z-index: 2;
+}
+
+
+
+/* .horizontalC{
+  width: 100%; 
+  height: 0; 
+  
+  border-bottom: 8px solid white;
+  border-right: 16px solid transparent;
+  border-left: 16px solid transparent;
+  position: relative;
+  z-index: 3;
+  top: -22px;
+  left: -16px;
+}
+
+.horizontalCborder{
+  width: 102%; 
+  height: 0; 
+  
+  border-bottom: 10px solid red;
+  border-right: 15px solid transparent;
+  border-left: 15px solid transparent;
+  position: relative;
+  z-index: 2;
+  top: -31px;
+  left: -19px;
+} */
+
+.horizontalC{
+  width: 100%;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+  -webkit-perspective: 130px;
+  perspective: 130p
+}
+
+.horizontalC:after {
+position: absolute;
+  width: 106%;
+  height: 102%;
+  background: white;
+  border: 5px solid black;
+  content: '';
+  left: -13px;
+  top: -31px;
+  z-index: -1;
+  -webkit-transform: rotateX(50deg) rotateY(0deg);
+  transform: rotateX(50deg) rotateY(0deg);
+}
+
+
+/* Cell */
+.cell{
+    background-color: red;
+}
+
+.cell > input{
+    width: 42px;
+    height: 21px;
+    margin: 0px;
+    opacity: 0;
+}
+
+.cell > .cellleft{
+    width: 16px;
+    height: 30px;
+    margin: 0px;
+}
+
+/* cell of col0, row0:5 */
+.cell01{
+    width: 16px;
+    height: 30px;
+    position: absolute;
+    top: -30px;
+    z-index: 99;
+}
+
+.cell11{
+    width: 16px;
+    height: 30px;
+    position: absolute;
+    top: 10px;
+    z-index: 99;
+}
+
+.cell21{
+    width: 16px;
+    height: 29px;
+    position: absolute;
+    top: 49px;
+    z-index: 99;
+}
+
+.cell31{
+    width: 16px;
+    height: 21px;
+    position: absolute;
+    top: 88px;
+    z-index: 99;
+}
+
+/* cell of row0 */
+.cell02{
+    width: 42px;
+    height: 21px;
+    position: absolute;
+    top: -30px;
+    left: 29px;
+    z-index: 99;
+}
+
+.cell03{
+    width: 42px;
+    height: 21px;
+    position: absolute;
+    top: -30px;
+    left: 84px;
+    z-index: 99;
+}
+
+.cell04{
+    width: 42px;
+    height: 21px;
+    position: absolute;
+    top: -30px;
+    left: 139px;
+    z-index: 99;
+}
+
+.cell05{
+    width: 42px;
+    height: 21px;
+    position: absolute;
+    top: -30px;
+    left: 194px;
+    z-index: 99;
+}
+
+.cell06{
+    width: 42px;
+    height: 21px;
+    position: absolute;
+    top: -30px;
+    left: 249px;
+    z-index: 99;
+}
+
+
+/* cell of row1 */
+.cell12{
+    width: 42px;
+    height: 20px;
+    position: absolute;
+    top: 10px;
+    left: 29px;
+    z-index: 99;
+}
+
+.cell13{
+    width: 42px;
+    height: 20px;
+    position: absolute;
+    top: 10px;
+    left: 84px;
+    z-index: 99;
+}
+
+
+.cell14{
+    width: 42px;
+    height: 20px;
+    position: absolute;
+    top: 10px;
+    left: 139px;
+    z-index: 99;
+}
+
+.cell15{
+    width: 42px;
+    height: 20px;
+    position: absolute;
+    top: 10px;
+    left: 194px;
+    z-index: 99;
+}
+
+.cell16{
+    width: 42px;
+    height: 20px;
+    position: absolute;
+    top: 10px;
+    left: 249px;
+    z-index: 99;
+}
+
+
+
+/* cell of row2 */
+.cell22{
+    width: 42px;
+    height: 20px;
+    position: absolute;
+    top: 49px;
+    left: 29px;
+    z-index: 99;
+}
+
+.cell23{
+    width: 42px;
+    height: 20px;
+    position: absolute;
+    top: 49px;
+    left: 84px;
+    z-index: 99;
+}
+
+.cell24{
+    width: 42px;
+    height: 20px;
+    position: absolute;
+    top: 49px;
+    left: 139px;
+    z-index: 99;
+}
+
+.cell25{
+    width: 42px;
+    height: 20px;
+    position: absolute;
+    top: 49px;
+    left: 194px;
+    z-index: 99;
+}
+
+.cell26{
+    width: 42px;
+    height: 20px;
+    position: absolute;
+    top: 49px;
+    left: 249px;
+    z-index: 99;
+}
+
+
+/* cell of row3 */
+.cell32{
+    width: 42px;
+    height: 21px;
+    position: absolute;
+    top: 88px;
+    left: 29px;
+    z-index: 99;
+}
+
+.cell33{
+    width: 42px;
+    height: 21px;
+    position: absolute;
+    top: 88px;
+    left: 84px;
+    z-index: 99;
+}
+
+.cell34{
+    width: 42px;
+    height: 21px;
+    position: absolute;
+    top: 88px;
+    left: 139px;
+    z-index: 99;
+}
+
+.cell35{
+    width: 42px;
+    height: 21px;
+    position: absolute;
+    top: 88px;
+    left: 194px;
+    z-index: 99;
+}
+
+.cell36{
+    width: 42px;
+    height: 21px;
+    position: absolute;
+    top: 88px;
+    left: 249px;
+    z-index: 99;
+}
+
+/* --------------End Building-------------- */
+
+
+/* --------------Picker-------------- */
+.presetwrap{
+    margin-top: 50px;
+}
+
+.pickerpresetwrap{
+    /* display: inline-block; */
+    /* display: flex;
+    justify-content: center; */
+    display: inline-flex;
+    margin-left: -10px;
+}
+
+.pickerpreset{
+    display: inline-flex;
+}
+
+.preset{
+    background-color: #383838;
+    border-style: solid;
+    border-color: black;
+    border-width: 1px;
+    width: 50px;
+    height: 17px;
+}
+
+.preset1{
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+}
+
+.preset5{
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+}
+
+.presetinput{
+    position: absolute;
+    width: 45px;
+    height: 20px;
+    margin: 0px;
+    opacity: 0;
+}
+
+.colornow{
+    background-color: white;
+    width: 20px;
+    height: 20px;
+    background-color: black;
+    border-radius: 50%;
+    border-style: solid;
+    border-color: white;
+    border-width: 3px;
+    position: relative;
+    left: 21px;
+    top: -2px;
+}
+
+
+.pickermanual{
+    margin-top: 30px;
+}
+
+
+.groupstyle{
+    display: grid;
+    grid-template-columns: 80px 80px 80px 80px;
+    grid-template-rows: 60px 60px 60px 60px; 
+    column-gap: 11px;
+    row-gap: 11px;
+}
+
+
+.stylename{
+    margin: 10px 0 25px 0;
+    color: white;
+    text-align: center;
+}
+
+.stylebtn{
+    background-color: #333333;
+    color: #676666;
+    border-width: 0px;
+    font-size: 14px;
+    /* font-size: 1vw; */
+}
+
+.stylebtn:focus {
+    outline: none;
+    /* color: #231F20;
+    background-color: #F2F2F2; */
+    color:black;
+    background-color: white;
+}
+/* --------------End Picker-------------- */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* --------------Speed Control-------------- */
+.headercontrol{
+    
+    color: white;
+    text-align: left;
+}
+
+.directioncontrol{
+    display: grid;
+    grid-template-columns: 85px 85px 85px ;
+    grid-template-rows: 85px 85px 85px ; 
+    column-gap: 15px;
+    row-gap: 15px;
+    margin: 30px 0 60px 0;
+}
+
+.directioncontrol input{
+    background-color: #333333;
+    color: #676666;
+    border-width: 0px;
+    font-size: 15px;
+}
+
+.directioncontrol input:focus {
+    outline: none;
+    /* color: #231F20;
+    background-color: #F2F2F2; */
+    color:black;
+    background-color: #333333;
+}
+
+.speedlabelimg{
+    display: flex;
+    justify-content: space-between;
+}
+
+.turtle img{
+    height: 30px;
+    position: relative;
+    bottom: -10px;
+}
+.rabbit img{
+    height: 44px;
+    position: relative;
+    bottom: 3px;
+}
+
+.speedlabeltext{
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.turtle p{
+    position: relative;
+    bottom: 5px;
+}
+.rabbit p{
+    position: relative;
+    bottom: 5px;
+}
+
+.speedcontrol input{
+    width: 100%;
+    position: relative;
+    /* left: -6px; */
+    left: 0px;
+}
+
+.resetbtnwrap{
+    margin-top: 35px;
+    text-align: center;
+}
+
+.resetbtn{
+    text-align: center;
+    color: black;
+    background-color: white;
+    padding: 7px 12px; 
+    border-radius: 42px;
+    border-width: 0px; 
+}
+
+.resetbtn:focus{
+    outline: none;
+    color: black;
+    background-color: rgb(228, 228, 228);
+}
+
+/* .footer {
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: white;
+   color: black;
+   text-align: center;
+} */
+
+.mobile-footer{
+    z-index: 99;
+    display: none;
+}
+
+
+
+.about{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.about h1{
+    font-size: 50px;
+    margin-bottom: 30px;
+}
+
+.aboutcontent{
+    padding: 0 25% 0 25%;
+}
+
+.contact{
+    margin-top: 40px;
+}
+
+.contact a{
+    color: white;
+}
+
+.about-logo img{
+    width: 170px;
+    margin: 25px 0 25px 0;
+}
+
+
+
+
+/* ---------------------------DARM */
+#Qbutton{
+    background-color: white;
+}
+
+
+@media screen and (max-width: 447px) {
+  .groupstyle{
+    display: grid;
+    grid-template-columns: 60px 60px 60px 60px;
+    grid-template-rows: 40px 40px 40px 40px; 
+    column-gap: 11px;
+    row-gap: 11px;
+    }
+
+    .stylebtn{
+    background-color: #333333;
+    color: #676666;
+    border-width: 0px;
+    font-size: 9px;
+    /* font-size: 1vw; */
+}
+}
+
+
+

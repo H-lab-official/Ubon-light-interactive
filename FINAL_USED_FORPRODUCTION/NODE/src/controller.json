@@ -1,0 +1,15 @@
+{
+    "1": "/composition/layers/25/clips/1/video/effects/slide/effect/x/behaviour/speed",
+    "2": "/composition/layers/25/clips/2/video/effects/slide/effect/x/behaviour/speed",
+    "3" : "/composition/layers/25/clips/3/video/effects/slide/effect/y/behaviour/speed",
+    "4":    "/composition/layers/25/clips/4/video/effects/slide/effect/y/behaviour/speed",
+    "5":  "/composition/layers/25/clips/5/video/effects/kaleidoscope/effect/inputrotation/behaviour/speed",
+    "6":  "/composition/layers/25/clips/6/video/effects/kaleidoscope/effect/inputrotation/behaviour/speed",
+    "7":  "/composition/layers/25/clips/7/video/effects/strobe/effect/frequency",
+    "8": "/composition/layers/25/clips/8/video/effects/iterate/effect/grotatex/behaviour/speed",
+    "9": "/composition/layers/25/clips/9/video/effects/iterate/effect/grotatex/behaviour/speed",
+
+    "10": "/composition/layers/25/clips/10/video/effects/iterate/effect/grotatex/behaviour/speed",
+    "11": "/composition/layers/25/clips/11/video/effects/iterate/effect/grotatex/behaviour/speed",
+    "12": "/composition/layers/25/clips/12/video/effects/iterate/effect/grotatex/behaviour/speed"
+}
